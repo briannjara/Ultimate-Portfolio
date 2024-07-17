@@ -43,6 +43,14 @@ form{
     display: flex;
     flex-direction: column;
     gap: 1.2rem;
+    position: relative;
+}
+
+.phoneSvg{
+    position: absolute;
+    margin: auto;
+    stroke: var(--color-primary);
+    height: 20px;
 }
 
 input, textarea{

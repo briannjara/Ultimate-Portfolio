@@ -11,18 +11,45 @@ import { FaPhp } from "react-icons/fa";
 import { GrMysql } from "react-icons/gr";
 import { AiOutlinePython } from "react-icons/ai";
 import { TbBrandMongodb } from "react-icons/tb";
+import { motion } from 'framer-motion';
+
+const variants ={
+  initial:{
+    y:50,
+    opacity:0
+  },
+  animate:{
+    y:0,
+    opacity:1,
+    transition:{
+      duration: 0.8,
+      staggerChildren: 0.1,
+    },
+  },
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 const Experience = () => {
   return (
-    <section id="experience">
+    <section id="experience" variants={variants} initial="initial" whileInView="animate">
       <h5>What Skills I Have</h5>
        <h2>My Experience</h2>
 
-       <div className="container experience__container">
-        <div className="experience__frontend">
+       <motion.div className="container experience__container" variants={variants} initial="initial" whileInView="animate">
+        <motion.div className="experience__frontend" variants={variants} initial="initial" whileInView="animate">
           <h3>Frontend Development</h3>
-          <div className="experience__content">
+          <motion.div className="experience__content" variants={variants} initial="initial" whileInView="animate">
             <article className='experience__details'>
             <FaHtml5 className='experience__details-icon'/>
             <div>
@@ -70,12 +97,12 @@ const Experience = () => {
             <small className='text-light'>Experienced</small>
             </div>
             </article>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
-        <div className="experience__backend">
+        <motion.div className="experience__backend" variants={variants} initial="initial" whileInView="animate">
         <h3>Backend Development</h3>
-          <div className="experience__content">
+          <motion.div className="experience__content"  variants={variants} initial="initial" whileInView="animate">
             <article className='experience__details'>
             <IoLogoNodejs className='experience__details-icon'/>
             <div>
@@ -117,10 +144,10 @@ const Experience = () => {
             </article>
 
             
-          </div>
+          </motion.div>
 
-        </div>
-       </div>
+        </motion.div>
+       </motion.div>
 
     </section>
   )

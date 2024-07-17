@@ -4,49 +4,75 @@ import ME from '../../assets/me.jpg'
 import { FaAward } from "react-icons/fa";
 import { FiUsers } from "react-icons/fi";
 import { FaRegFolder } from "react-icons/fa6";
+import { motion } from 'framer-motion';
+
+
+
+const variants ={
+  initial:{
+    y:100,
+    opacity:0
+  },
+  animate:{
+    y:0,
+    opacity:1,
+    transition:{
+      duration: 0.8,
+      staggerChildren: 0.1,
+    },
+  },
+}
+
+
+
+
+
+
+
+
 
 const About = () => {
   return (
-    <section id='about'>
+    <motion.section id='about' variants={variants} initial="initial" whileInView="animate">
       <h5>Get To Know</h5>
       <h2>About Me</h2>
 
-      <div className="container about__container">
+      <motion.div className="container about__container" variants={variants} initial="initial" whileInView="animate">
         <div className="about__me">
-        <div className="about__me-image">
+        <div className="about__me-image" >
           <img src={ME}alt="" />
         </div>
         </div>
         
 
-        <div className="about__content">
-          <div className="about__cards">
-            <article className='about__card'>
+        <motion.div className="about__content" variants={variants} initial="initial" whileInView="animate">
+          <motion.div className="about__cards" variants={variants} initial="initial" whileInView="animate">
+            <motion.article className='about__card'  >
               <FaAward className='about__icon'/>
               <h5>Experience</h5>
               <small>3+ Years Working</small>
-            </article>
+            </motion.article>
 
-            <article className='about__card'>
-              <FiUsers className='about__icon'/>
+            <motion.article className='about__card'>
+              <FiUsers className='about__icon' />
               <h5>Clients</h5>
               <small>200+ Clients </small>
-            </article>
+            </motion.article>
 
-            <article className='about__card'>
-              <FaRegFolder className='about__icon'/>
+            <motion.article className='about__card' >
+              <FaRegFolder className='about__icon' />
               <h5>Projects</h5>
               <small>80+ completed Projects</small>
-            </article>
-          </div>
+            </motion.article>
+          </motion.div >
 
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam tenetur maiores id atque ipsa vel ab suscipit labore amet quasi molestiae architecto fugit, quod velit, a neque consequatur temporibus est?</p>
+          <motion.p variants={variants} initial="initial" whileInView="animate">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam tenetur maiores id atque ipsa vel ab suscipit labore amet quasi molestiae architecto fugit, quod velit, a neque consequatur temporibus est?</motion.p>
 
           <a href="#contact" className='btn btn-primary'>Let's Talk</a>
 
-        </div>
-      </div>
-    </section>
+        </motion.div>
+      </motion.div>
+    </motion.section>
   )
 }
 

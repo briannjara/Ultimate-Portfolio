@@ -3,23 +3,61 @@ import './Header.css'
 import CTA from './CTA'
 import ME from '../../assets/mee.png'
 import HeaderSocials from './HeaderSocials'
+import { motion } from 'framer-motion'
+
+
+
+
+
+const variants ={
+  initial:{
+    y:50,
+    opacity:0
+  },
+  animate:{
+    y:0,
+    opacity:1,
+    transition:{
+      duration: 0.8,
+      staggerChildren: 0.1,
+    },
+  },
+}
+
+
+const variant2 = {
+  initial:{
+    y:100,
+    opacity:0
+  },
+  animate:{
+    y:0,
+    opacity:1,
+    transition:{
+      duration: 1,
+    },
+  },
+}
+
+
+
 
 const Header = () => {
   return (
     <header>
-      <div className="container header__container">
-        <h5>Hello I'm</h5>
-        <h1>Brian Njaramba</h1>
+      <motion.div className="container header__container" variants={variants} initial="initial" whileInView="animate">
+        <motion.h5 variants={variants} initial="initial" whileInView="animate">Hello I'm</motion.h5>
+        <motion.h1 variants={variant2} initial="initial" whileInView="animate">Brian Njaramba</motion.h1>
         <h5 className='text-light'>Fullstack Developer</h5>
         <CTA></CTA>
         <HeaderSocials></HeaderSocials>
 
-        <div className="me">
+        <motion.div className="me" variants={variants} initial="initial" whileInView="animate">
           <img src={ME} alt="" />
-        </div>
+        </motion.div>
 
         <a href="#contact" className='scroll__down'>Scroll Down</a>
-      </div>
+      </motion.div>
     </header>
   )
 }
